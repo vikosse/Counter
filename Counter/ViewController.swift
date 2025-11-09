@@ -10,45 +10,41 @@ import UIKit
 class ViewController: UIViewController {
     private var counterValue = 0 {
         didSet {
-                CounterLabel.text = "Значение счётчика: \(counterValue)"
+                сounterLabel.text = "Значение счётчика: \(counterValue)"
             }
     }
         
     private var historyOfChanges = ["История изменений:"]
     
 
-    @IBOutlet weak var CounterLabel: UILabel!
-    @IBOutlet weak var CountPlusButton: UIButton!
-    @IBOutlet weak var CountMinusButton: UIButton!
-    @IBOutlet weak var CountRefreshButton: UIButton!
-    @IBOutlet weak var HistoryOfChangesTextView: UITextView!
+    @IBOutlet weak var сounterLabel: UILabel!
+    @IBOutlet weak var сountPlusButton: UIButton!
+    @IBOutlet weak var сountMinusButton: UIButton!
+    @IBOutlet weak var сountRefreshButton: UIButton!
+    @IBOutlet weak var historyOfChangesTextView: UITextView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        HistoryOfChangesTextView.text = historyOfChanges[0]
+        historyOfChangesTextView.text = historyOfChanges[0]
     }
 
     @IBAction func plusButtonDidTap() {
         counterValue += 1
-        historyOfChanges.append("[\(currentDateTime())]: значение изменено на +1")
-        updateHistoryView()        
+        appendAndUpdateHistory("значение изменено на +1")
     }
     
     @IBAction func minusButtonDidTap() {
         if counterValue > 0 {
             counterValue -= 1
-            historyOfChanges.append("[\(currentDateTime())]: значение изменено на -1")
-            updateHistoryView()
+            appendAndUpdateHistory("значение изменено на -1")
         } else {
-            historyOfChanges.append("[\(currentDateTime())]: попытка уменьшить значение счётчика ниже 0")
-            updateHistoryView()
+            appendAndUpdateHistory("попытка уменьшить значение счётчика ниже 0")
         }
     }
     
     @IBAction func refreshButtonDidTap() {
         counterValue = 0
-        historyOfChanges.append("[\(currentDateTime())]: значение сброшено")
-        updateHistoryView()
+        appendAndUpdateHistory("значение сброшено")
     }
     
     private func currentDateTime() -> String {
@@ -58,8 +54,10 @@ class ViewController: UIViewController {
         return formatter.string(from: Date())
     }
     
-    private func updateHistoryView() {
-        HistoryOfChangesTextView.text = historyOfChanges.joined(separator: "\n")
+
+    private func appendAndUpdateHistory(_ message: String) {
+        historyOfChanges.append("[\(currentDateTime())]: \(message)")
+        historyOfChangesTextView.text = historyOfChanges.joined(separator: "\n")
     }
 }
 
