@@ -8,6 +8,7 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
     private var counterValue = 0 {
         didSet {
                 сounterLabel.text = "Значение счётчика: \(counterValue)"
@@ -15,7 +16,6 @@ class ViewController: UIViewController {
     }
         
     private var historyOfChanges = ["История изменений:"]
-    
 
     @IBOutlet weak var сounterLabel: UILabel!
     @IBOutlet weak var сountPlusButton: UIButton!
@@ -54,7 +54,6 @@ class ViewController: UIViewController {
         return formatter.string(from: Date())
     }
     
-
     private func appendAndUpdateHistory(_ message: String) {
         historyOfChanges.append("[\(currentDateTime())]: \(message)")
         historyOfChangesTextView.text = historyOfChanges.joined(separator: "\n")
