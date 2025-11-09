@@ -11,16 +11,16 @@ class ViewController: UIViewController {
     
     private var counterValue = 0 {
         didSet {
-                сounterLabel.text = "Значение счётчика: \(counterValue)"
+                counterLabel.text = "Значение счётчика: \(counterValue)"
             }
     }
         
     private var historyOfChanges = ["История изменений:"]
 
-    @IBOutlet weak var сounterLabel: UILabel!
-    @IBOutlet weak var сountPlusButton: UIButton!
-    @IBOutlet weak var сountMinusButton: UIButton!
-    @IBOutlet weak var сountRefreshButton: UIButton!
+    @IBOutlet weak var counterLabel: UILabel!
+    @IBOutlet weak var countPlusButton: UIButton!
+    @IBOutlet weak var countMinusButton: UIButton!
+    @IBOutlet weak var countRefreshButton: UIButton!
     @IBOutlet weak var historyOfChangesTextView: UITextView!
     
     override func viewDidLoad() {

@@ -80,11 +80,11 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <connections>
+                        <outlet property="countMinusButton" destination="7qe-GQ-976" id="yhb-Jx-Khb"/>
+                        <outlet property="countPlusButton" destination="a7e-gA-FsQ" id="r0f-bA-xxT"/>
+                        <outlet property="countRefreshButton" destination="C7u-UO-4oT" id="GaN-mX-7Fs"/>
+                        <outlet property="counterLabel" destination="QNJ-Z7-hXw" id="V3D-IF-Ihc"/>
                         <outlet property="historyOfChangesTextView" destination="UEU-0E-APA" id="6zR-1M-9g1"/>
-                        <outlet property="сountMinusButton" destination="7qe-GQ-976" id="yhb-Jx-Khb"/>
-                        <outlet property="сountPlusButton" destination="a7e-gA-FsQ" id="r0f-bA-xxT"/>
-                        <outlet property="сountRefreshButton" destination="C7u-UO-4oT" id="GaN-mX-7Fs"/>
-                        <outlet property="сounterLabel" destination="QNJ-Z7-hXw" id="V3D-IF-Ihc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
