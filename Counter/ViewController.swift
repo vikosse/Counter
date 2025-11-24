@@ -15,25 +15,33 @@ class ViewController: UIViewController {
             }
     }
         
-    private var historyOfChanges = ["История изменений:"]
+    private var history = ["История изменений:"]
+    
+    private lazy var formatter: DateFormatter = {
+            let formatter = DateFormatter()
+            formatter.locale = Locale(identifier: "ru_RU")
+            formatter.dateFormat = "d MMM yyyy, HH:mm"
+            return formatter
+        }()
 
-    @IBOutlet weak var counterLabel: UILabel!
-    @IBOutlet weak var countPlusButton: UIButton!
-    @IBOutlet weak var countMinusButton: UIButton!
-    @IBOutlet weak var countRefreshButton: UIButton!
-    @IBOutlet weak var historyOfChangesTextView: UITextView!
+
+    @IBOutlet private weak var counterLabel: UILabel!
+    @IBOutlet private weak var incrementButton: UIButton!
+    @IBOutlet private weak var decrementButton: UIButton!
+    @IBOutlet private weak var countRefreshButton: UIButton!
+    @IBOutlet private weak var historyTextView: UITextView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        historyOfChangesTextView.text = historyOfChanges[0]
+        historyTextView.text = history[0]
     }
 
-    @IBAction func plusButtonDidTap() {
+    @IBAction private func plusButtonDidTap() {
         counterValue += 1
         appendAndUpdateHistory("значение изменено на +1")
     }
     
-    @IBAction func minusButtonDidTap() {
+    @IBAction private func minusButtonDidTap() {
         if counterValue > 0 {
             counterValue -= 1
             appendAndUpdateHistory("значение изменено на -1")
@@ -42,21 +50,19 @@ class ViewController: UIViewController {
         }
     }
     
-    @IBAction func refreshButtonDidTap() {
+    @IBAction private func refreshButtonDidTap() {
         counterValue = 0
         appendAndUpdateHistory("значение сброшено")
     }
     
     private func currentDateTime() -> String {
-        let formatter = DateFormatter()
-        formatter.locale = Locale(identifier: "ru_RU")
-        formatter.dateFormat = "d MMM yyyy, HH:mm"
-        return formatter.string(from: Date())
-    }
+            formatter.string(from: Date())
+        }
     
     private func appendAndUpdateHistory(_ message: String) {
-        historyOfChanges.append("[\(currentDateTime())]: \(message)")
-        historyOfChangesTextView.text = historyOfChanges.joined(separator: "\n")
+        history.append("[\(currentDateTime())]: \(message)")
+        historyTextView.text = history.joined(separator: "\n")
+        historyTextView.scrollRangeToVisible(NSRange(location: historyTextView.text.count - 1, length: 1))
     }
 }
 

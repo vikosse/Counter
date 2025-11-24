@@ -80,11 +80,11 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <connections>
-                        <outlet property="countMinusButton" destination="7qe-GQ-976" id="yhb-Jx-Khb"/>
-                        <outlet property="countPlusButton" destination="a7e-gA-FsQ" id="r0f-bA-xxT"/>
                         <outlet property="countRefreshButton" destination="C7u-UO-4oT" id="GaN-mX-7Fs"/>
                         <outlet property="counterLabel" destination="QNJ-Z7-hXw" id="V3D-IF-Ihc"/>
-                        <outlet property="historyOfChangesTextView" destination="UEU-0E-APA" id="6zR-1M-9g1"/>
+                        <outlet property="decrementButton" destination="7qe-GQ-976" id="yhb-Jx-Khb"/>
+                        <outlet property="historyTextView" destination="UEU-0E-APA" id="6zR-1M-9g1"/>
+                        <outlet property="incrementButton" destination="a7e-gA-FsQ" id="r0f-bA-xxT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -101,7 +101,7 @@
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="tableCellBlueTextColor">
-            <color red="0.0" green="0.56862745098039214" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
